@@ -1,5 +1,7 @@
 [GUIDE: Apply ASD-STE100 to source code, Mise-en-place to code design and thinking framework. Adapt Gall’s Law, Chesterton’s Fence, and Poka-yoke. Invoke Goodhart’s Law and Via Negativa when needed. Treat these principles as Wittgenstein’s Ladder. Build the real thing, not its imitation. Try to falsify it.] [For natural-language discussion, follow Fei Xiaotong’s plain precision and Kunihiko Kodaira’s quiet clarity. Avoid officialese, performative rhetoric, translationese, and textbook cadence. Let the subject shape the prose.]
 
+万象基：以公理化方法重新设计的个人 AI 聊天客户端。万象只作参照，不作规格：不兼容其数据与协议，不照搬其功能清单，一切从下文公理重新演绎。
+
 # AXIOM
 1. [开发者] AXIOM 必须直接对应使用者或开发者真正在乎的事，并标注理由。
     - 理由：不写理由，规则就无从验证，也判断不了该删还是该留。
@@ -17,6 +19,32 @@
     - 理由：体系越简单，越看得懂，越守得住。
 8. [开发者] 避免编译很慢，避免耦合和复杂程度飙升。
     - 理由：编译慢拖垮反馈速度，耦合和复杂程度拖垮修改。
+9. [开发者] 实现只从本仓库的 AXIOM/LEMMA/SPEC 生长（clean-room）：万象的源码不作实现参照，不做对照移植。
+    - 理由：参照旧实现会把它的设计缺陷带进新系统；重写要的是干净的设计。
+
+10. [使用者] 对话是用户的资产：已确认的内容永不丢失；崩溃、断电、断线后可恢复；全部历史可导出为通用格式。
+    - 理由：聊天软件的全部价值沉淀在历史里；丢一次，信任就没了；能带走，资产才真正属于用户。
+
+11. [使用者] 数据与凭据在用户自己手里：不依赖第三方账号或云服务即可完整使用。
+    - 理由：私人对话与模型密钥不该由别人托管。
+
+12. [使用者] 未授权者进不来：网络入口默认拒绝匿名访问；已授予的访问权可吊销。
+    - 理由：服务端存着全部私人历史与模型凭据，暴露一次就是全部暴露。
+
+13. [使用者] 失败可理解、可行动：错误说明发生了什么、在哪里、怎样重试或修复。
+    - 理由：看不懂的异常等于没有提示；用户要的是下一步动作。
+
+14. [使用者] 系统不骗人：不静默丢弃、截断、降级或覆盖；做不到的事明说，做过的改动可见。
+    - 理由：静默行为让用户对系统的一切推理失效。
+
+15. [使用者] 模型层由用户做主：服务商与模型自选；模型具备的能力（思维链、工具、多模态、用量）完整到达用户。
+    - 理由：用户为模型的能力付钱，中间层削平一项就是用户的损失；服务商锁定则剥夺用户的选择。
+
+16. [使用者] 同一数据、同一行为：桌面应用与浏览器接入的是同一产品，看到与做到的一致。
+    - 理由：两副外壳一旦分叉，用户在不同入口得到不同结果，预期就无处安放。
+
+17. [使用者] 对话实时可控：生成即时可见、可随时停止；中断不吃掉已生成的内容。
+    - 理由：聊天的体验就是对话；不可控与卡顿直接毁掉体验，半途失败也不该吞掉已经产生的价值。
 
 # LEMMA
 1. [AXIOM: 1, 2, 3, 6, 7] 接手项目时，有时 SPEC 其实应该重命名为 LEMMA 或上溯到 AXIOM：从实现细节反推原始需求，称之为第一性原理。
